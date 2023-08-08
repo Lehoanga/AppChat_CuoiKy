@@ -37,7 +37,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Hồ sơ cá nhân'),
+          backgroundColor: Colors.lightBlue,
+          iconTheme: IconThemeData(
+            color: Colors.white, //change your color here
+          ),
+          title: const Text('Hồ sơ cá nhân', style: TextStyle(color: Colors.white),),
         ),
     
         floatingActionButton: Padding(
@@ -147,7 +151,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       prefixIcon: Icon(Icons.info_outline, color: Colors.blue,),
                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                       hintText: 'vd: Đang bận',
-                      label: Text('Trạng thái'),
+                      label: Text('Thông tin'),
                       ),
                   ),
                 

@@ -59,14 +59,17 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         child: Scaffold(
           appBar: AppBar(
-            leading: const Icon(CupertinoIcons.home),
+            backgroundColor: Colors.lightBlue,
+            leading: const Icon(CupertinoIcons.home, color: Colors.white,),
             title: _isSearching
               ?TextField(
                 decoration: InputDecoration(
+                  iconColor: Colors.white,
                   border: InputBorder.none,
-                  hintText: 'Tên, Email, ...'),
+                  hintText: 'Tên, Email, ...',
+                  hintStyle: TextStyle(color: Colors.white)),
                 autofocus: true,
-                style: TextStyle(fontSize: 17, letterSpacing: 0.5),
+                style: TextStyle(fontSize: 17, letterSpacing: 0.5, ),
                 onChanged: (val){
                   _searchList.clear();
           
@@ -82,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   }
                 },
               )
-              :Text('We Chat'),
+              :Text('We Chat', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),),
             actions: [
               IconButton(
                 onPressed: (){
@@ -90,16 +93,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     _isSearching =!_isSearching;
                   });
                 }, 
-                icon: Icon(_isSearching
+                icon: Icon(_isSearching 
                   ?CupertinoIcons.clear_circled_solid 
-                  :Icons.search
+                  :Icons.search, color: Colors.white
                 )
               ),
           
               IconButton(onPressed: (){
                 Navigator.push(context, MaterialPageRoute(
                   builder: (_) => ProfileScreen(user: APIs.me,)));
-              }, icon: const Icon(Icons.more_vert))
+              }, icon: const Icon(Icons.more_vert),
+                  color: Colors.white)
             ],
           ),
 

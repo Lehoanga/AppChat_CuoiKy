@@ -50,10 +50,11 @@ class _ChatScreenState extends State<ChatScreen> {
         },
           child: Scaffold(
             appBar: AppBar(
+              backgroundColor: Colors.lightBlue,
               automaticallyImplyLeading: false,
               flexibleSpace: _appBar(),
             ),
-            backgroundColor:const Color.fromARGB(255, 234, 248, 255),
+            backgroundColor:Colors.white,
             body: Column(
               children: [
                 Expanded(
@@ -142,7 +143,7 @@ class _ChatScreenState extends State<ChatScreen> {
         children: [
           IconButton(
             onPressed: () => Navigator.pop(context), 
-            icon: const Icon(Icons.arrow_back), color: Colors.black54,),
+            icon: const Icon(Icons.arrow_back), color: Colors.white,),
             ClipRRect(
                 borderRadius: BorderRadius.circular(mq.height * .03),
                 child: CachedNetworkImage(
@@ -164,7 +165,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     list.isNotEmpty ? list[0].name :widget.user.name, 
                     style: TextStyle(
                       fontSize: 16,
-                      color: Colors.black87,
+                      color: Colors.white,
                       fontWeight: FontWeight.w500,
                     ),),
                     
@@ -177,7 +178,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     : MyDateUtil.getLastActiveTime(context: context, lastActive: widget.user.lastActive), 
                       style: TextStyle(
                         fontSize: 13,
-                        color: Colors.black54,
+                        color: Colors.white70,
                       ),
                   )
                 ],
@@ -198,6 +199,8 @@ class _ChatScreenState extends State<ChatScreen> {
           Expanded(
             child: Card(
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+              color: Color.fromARGB(216, 255, 255, 255),
+              elevation: 3,
               child: Row(
                 children: [
                   IconButton(
@@ -270,11 +273,12 @@ class _ChatScreenState extends State<ChatScreen> {
                 _textController.text ='';
               }
             }, 
-            minWidth: 0,
+            minWidth: 0,    
             padding: EdgeInsets.only(top: 10, bottom: 10, right: 5, left: 10),
             shape: const CircleBorder(),
-            color: Colors.green,
-            child: Icon(Icons.send, color: Colors.white, size: 28,),)
+            elevation: 2,
+            color: Color.fromARGB(255, 114, 202, 117),
+            child: Icon(Icons.send, color: Colors.white, size: 25,),)
         ],
       ),
     );

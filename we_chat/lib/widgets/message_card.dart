@@ -43,14 +43,14 @@ class _MessageCardState extends State<MessageCard> {
       children: [
         Flexible(
           child: Container(
-            padding: EdgeInsets.all(widget.message.msg == Type.image 
-                ? mq.width * .03
+            // ignore: unrelated_type_equality_checks
+            padding: EdgeInsets.all(widget.message.type == Type.image 
+                ? mq.width * 0
                 : mq.width * .04),
             margin: EdgeInsets.symmetric(
               horizontal: mq.width * .04, vertical: mq.height * .01),
-            decoration: BoxDecoration(color: Color.fromARGB(255, 221, 245, 255),
-            border: Border.all(color: Colors.lightBlue),
-            borderRadius: BorderRadius.only(
+            decoration: widget.message.type == Type.image ? null :BoxDecoration(color: Color(0xFFe4e6eb),
+            borderRadius: widget.message.type == Type.image ? null : BorderRadius.only(
               topLeft: Radius.circular(20),
               topRight: Radius.circular(20),
               bottomRight: Radius.circular(20))),
@@ -59,7 +59,7 @@ class _MessageCardState extends State<MessageCard> {
               widget.message.msg,
               style: const TextStyle(fontSize: 15, color: Colors.black87)
               ) : ClipRRect(
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(10),
                 child: CachedNetworkImage(
                   imageUrl: widget.message.msg,                
                   placeholder: (context, url) => 
@@ -109,23 +109,22 @@ class _MessageCardState extends State<MessageCard> {
         Flexible(
           child: Container(
             // ignore: unrelated_type_equality_checks
-            padding: EdgeInsets.all(widget.message.msg == Type.image 
-                ? mq.width * .03
+            padding: EdgeInsets.all(widget.message.type == Type.image 
+                ? mq.width * 0
                 : mq.width * .04),
             margin: EdgeInsets.symmetric(
               horizontal: mq.width * .04, vertical: mq.height * .01),
-            decoration: BoxDecoration(color: Color.fromARGB(255, 218, 245, 176),
-            border: Border.all(color: Colors.lightGreen),
-            borderRadius: BorderRadius.only(
+            decoration: widget.message.type == Type.image ? null :BoxDecoration(color: Colors.blue,
+            borderRadius: widget.message.type == Type.image ? null : BorderRadius.only(
               topLeft: Radius.circular(20),
               topRight: Radius.circular(20),
               bottomLeft: Radius.circular(20))),
             child: widget.message.type == Type.text ?
             Text(
               widget.message.msg,
-              style: const TextStyle(fontSize: 15, color: Colors.black87)
+              style: const TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.w500)
               ) : ClipRRect(
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(10),
                 child: CachedNetworkImage(
                   imageUrl: widget.message.msg,                
                   placeholder: (context, url) => 

@@ -24,7 +24,13 @@ class _ViewProfileScreenState extends State<ViewProfileScreen> {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
           //app bar
-          appBar: AppBar(title: Text(widget.user.name)),
+          appBar: AppBar(
+            iconTheme: IconThemeData(
+              color: Colors.white, //change your color here
+            ),
+            title: Text(widget.user.name, style: TextStyle(color: Colors.white),),
+            backgroundColor: Colors.lightBlue,
+            ),
           floatingActionButton: //user about
               Row(
             mainAxisAlignment: MainAxisAlignment.center,
